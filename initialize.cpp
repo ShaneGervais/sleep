@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include "iterate.h"
-#include <sstream> //for std::istringstream
+#include <sstream> //for istringstream
 
 //Program will accept 3 inputs
 #define VALID 3
@@ -21,13 +21,14 @@ Control *initialize(int argc, char ** argv)
     //If input amount is not valid    
     if(argc != VALID)
     {
-        std::cerr << "Usage: " << argv[0] << " iterations seconds" << std::endl; 
+        cerr << "Usage: " << argv[0] << " iterations seconds " << endl; 
+
         exit(0);//terminate prog
     }
 
     else
     {
-        //setting a new control
+        //Initialize a new control
         control = new Control;
         control ->iterations=0;
         control ->seconds=0;
@@ -35,13 +36,16 @@ Control *initialize(int argc, char ** argv)
 
         //Storing in control
         {
-            std::istringstream stream(argv[1]);
+            //First argument goes into seconds
+            istringstream stream(argv[1]);
             
-            if(!(stream >> control->seconds)) return control;
+            if(!(stream >> control->iterations)) return control;
         }
         {
-            std::istringstream stream(argv[2]);
-            if(!(stream >> control->seconds)) return control;
+            //Second argument goes into iterations
+            istringstream stream(argv[2]);
+
+            if(!(stream >> control->seconds)) return control; //fix
         }
 
     }//end else
