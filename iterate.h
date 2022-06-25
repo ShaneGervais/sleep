@@ -1,6 +1,8 @@
 #ifndef ITERATE_H
 #define ITERATE_H
 
+/*Structure for our control which can be thought as a
+panel for number of iterations and seconds the program sleeps*/
 struct Control
 {
     int iterations;
