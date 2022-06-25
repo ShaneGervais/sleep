@@ -24,22 +24,21 @@
 #include <iostream>
 #include <cstdlib>
 
+
 void execute(Control *control)
 {
     //If we have a control
     if(control)
     {
+
         for(int i = 0; i < control->iterations; i++)
         {
             //Sleep for ith seconds in control
             sleep(control->seconds);
 
             //print
-            std::cout << i
-                      << " sleeping for "
-                      << control->seconds
-                      << " seconds "
-                      << std::endl;
+            cout << "Iteration: " << i + 1 << " sleeping for " << control->seconds
+                << " seconds " << endl;
         }
 
     }//end if
